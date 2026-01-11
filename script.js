@@ -1,4 +1,4 @@
-// Инициализация адаптера
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🔧 Адаптер сверк загружен');
     
@@ -9,19 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     updateTime();
 });
 
-// Эффекты при наведении на кнопки
+
 function initHoverEffects() {
     const buttons = document.querySelectorAll('.adapter-btn');
     
     buttons.forEach(button => {
         button.addEventListener('mouseenter', function() {
-            // Добавляем класс активности
+          
             this.classList.add('active');
             
-            // Создаем частицы
             createParticles(this);
             
-            // Воспроизводим звук (если доступен)
+         
             playHoverSound();
         });
         
@@ -29,26 +28,24 @@ function initHoverEffects() {
             this.classList.remove('active');
         });
         
-        // Клик по кнопке
         button.addEventListener('click', function(e) {
-            // Анимация клика
+         
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
             }, 200);
             
-            // Статистика кликов (демо)
             logClick(this.href);
         });
     });
 }
 
-// Анимация аватара
+
 function initAvatarAnimation() {
     const avatar = document.getElementById('avatar');
     if (!avatar) return;
     
-    // Вращение при наведении
+    
     avatar.addEventListener('mouseenter', function() {
         this.style.transition = 'transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
         this.style.transform = 'rotate(10deg) scale(1.1)';
@@ -58,7 +55,7 @@ function initAvatarAnimation() {
         this.style.transform = 'rotate(0deg) scale(1)';
     });
     
-    // Периодическое мерцание
+   
     setInterval(() => {
         avatar.style.boxShadow = `
             0 0 ${20 + Math.random() * 20}px 
@@ -67,7 +64,7 @@ function initAvatarAnimation() {
     }, 2000);
 }
 
-// Создание частиц
+
 function createParticles(element) {
     const rect = element.getBoundingClientRect();
     const particles = 8;
@@ -75,8 +72,7 @@ function createParticles(element) {
     for (let i = 0; i < particles; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
-        
-        // Позиция
+       
         const x = rect.left + rect.width / 2;
         const y = rect.top + rect.height / 2;
         
@@ -90,7 +86,7 @@ function createParticles(element) {
         particle.style.pointerEvents = 'none';
         particle.style.zIndex = '1000';
         
-        // Анимация
+       
         const angle = (Math.PI * 2 / particles) * i;
         const speed = 2 + Math.random() * 2;
         const distance = 30 + Math.random() * 40;
@@ -111,7 +107,7 @@ function createParticles(element) {
         
         document.body.appendChild(particle);
         
-        // Удаление частицы
+       
         setTimeout(() => {
             if (particle.parentNode) {
                 particle.parentNode.removeChild(particle);
@@ -120,9 +116,9 @@ function createParticles(element) {
     }
 }
 
-// Звуковые эффекты
+
 function initAudioEffects() {
-    // Создаем аудио контекст для более сложных звуков
+    
     try {
         if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
             window.audioContext = new (AudioContext || webkitAudioContext)();
@@ -141,7 +137,7 @@ function playHoverSound() {
     }
 }
 
-// Эффекты курсора
+
 function initCursorEffects() {
     const cursor = document.createElement('div');
     cursor.id = 'custom-cursor';
@@ -175,19 +171,19 @@ function initCursorEffects() {
     let dotX = 0;
     let dotY = 0;
     
-    // Обновление позиции курсора
+
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
         
-        // Курсор-точка следует сразу
+     
         cursorDot.style.left = `${mouseX}px`;
         cursorDot.style.top = `${mouseY}px`;
     });
     
-    // Анимация основного курсора
+   
     function animateCursor() {
-        // Плавное следование основного курсора
+       
         cursorX += (mouseX - cursorX) * 0.1;
         cursorY += (mouseY - cursorY) * 0.1;
         
@@ -199,7 +195,6 @@ function initCursorEffects() {
     
     animateCursor();
     
-    // Эффекты при наведении на кнопки
     document.querySelectorAll('a, button, .adapter-btn').forEach(el => {
         el.addEventListener('mouseenter', () => {
             cursor.style.width = '40px';
@@ -217,11 +212,11 @@ function initCursorEffects() {
     });
 }
 
-// Логирование кликов (демо)
+
 function logClick(url) {
     console.log(`📊 Клик по ссылке: ${url}`);
     
-    // Можно добавить отправку в Google Analytics или другую аналитику
+  
     if (typeof gtag !== 'undefined') {
         gtag('event', 'click', {
             'event_category': 'Adapter Link',
@@ -230,7 +225,7 @@ function logClick(url) {
     }
 }
 
-// Обновление времени (опционально)
+
 function updateTime() {
     const timeElement = document.createElement('div');
     timeElement.id = 'live-time';
@@ -258,7 +253,7 @@ function updateTime() {
     setInterval(update, 1000);
 }
 
-// Добавляем CSS для частиц
+
 const style = document.createElement('style');
 style.textContent = `
     .particle {
