@@ -13,7 +13,7 @@ body {
     position: relative;
 }
 
-/* Анимированная координатная сетка */
+
 .grid-overlay {
     position: fixed;
     top: 0;
@@ -38,7 +38,7 @@ body {
     }
 }
 
-/* Неоновые линии */
+
 .neon-effects {
     position: fixed;
     top: 0;
@@ -105,7 +105,7 @@ body {
     }
 }
 
-/* Основной контейнер */
+
 .container {
     position: relative;
     z-index: 3;
@@ -118,7 +118,7 @@ body {
     min-height: 100vh;
 }
 
-/* Секция профиля */
+
 .profile-section {
     text-align: center;
     margin-bottom: 60px;
@@ -286,7 +286,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* Секция кнопок - ОБНОВЛЕНО для 6 кнопок */
+
 .buttons-section {
     width: 100%;
     max-width: 900px;
@@ -419,7 +419,7 @@ body {
     opacity: 1;
 }
 
-/* Информационная секция */
+
 .info-section {
     width: 100%;
     max-width: 800px;
@@ -482,7 +482,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Адаптивность */
+
 @media (max-width: 768px) {
     .container {
         padding: 20px 15px;
@@ -543,7 +543,6 @@ body {
     }
 }
 
-/* Эффект загрузки */
 @keyframes fadeIn {
     from {
         opacity: 0;
